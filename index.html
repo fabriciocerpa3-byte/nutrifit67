@@ -23,6 +23,7 @@
       --texto: #edf0f4;
       --texto2: #96a0b3;
       --texto3: #69718a;
+      --focus-ring: 0 0 0 3px rgba(95,185,138,0.18);
     }
 
     body {
@@ -45,23 +46,23 @@
       z-index: 9999;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       min-height: 44px;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, rgba(95,185,138,0.18), rgba(95,185,138,0.07));
-      border: 1px solid rgba(95,185,138,0.35);
-      border-radius: 16px;
-      color: var(--verde);
-      font-size: 0.96rem;
+      padding: 12px 22px;
+      background: linear-gradient(135deg, rgba(95,185,138,0.22), rgba(95,185,138,0.08));
+      border: 1px solid rgba(95,185,138,0.42);
+      border-radius: 15px;
+      color: var(--texto);
+      font-size: 0.94rem;
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.1px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: transform 0.22s cubic-bezier(0.23,1,0.32,1), border-color 0.22s, background 0.22s, box-shadow 0.22s;
       backdrop-filter: blur(12px);
       box-shadow:
-        0 0 0 1px rgba(95,185,138,0.14),
-        0 12px 34px rgba(95,185,138,0.16),
-        inset 0 1px 0 rgba(255,255,255,0.08);
+        0 0 0 1px rgba(95,185,138,0.16),
+        0 12px 30px rgba(95,185,138,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.09);
     }
     #btn-nutrifit::before {
       content: '';
@@ -82,23 +83,23 @@
       z-index: 9999;
     }
     #chatbot-toggle {
-      min-width: 170px;
-      height: 58px;
-      padding: 0 20px;
-      gap: 10px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(95,185,138,0.22), rgba(17,19,24,0.92));
+      min-width: 166px;
+      height: 56px;
+      padding: 0 18px;
+      gap: 11px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, rgba(95,185,138,0.24), rgba(17,19,24,0.94));
       border: 1px solid rgba(95,185,138,0.38);
       backdrop-filter: blur(14px);
       color: var(--verde);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 900;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.015em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s;
+      transition: transform 0.22s cubic-bezier(0.23,1,0.32,1), border-color 0.22s, background 0.22s, box-shadow 0.22s;
       box-shadow:
         0 0 0 1px rgba(95,185,138,0.083),
         0 8px 28px rgba(95,185,138,0.11),
@@ -110,8 +111,8 @@
       transform: translateY(-2px);
     }
     .chatbot-toggle-icon {
-      width: 30px; height: 30px;
-      border-radius: 11px;
+      width: 28px; height: 28px;
+      border-radius: 10px;
       display: inline-flex; align-items: center; justify-content: center;
       background: rgba(95,185,138,0.16);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
@@ -220,16 +221,6 @@
       animation: chat-spin 0.8s linear infinite;
     }
     @keyframes chat-spin { to { transform: rotate(360deg); } }
-
-    #btn-nutrifit:hover {
-      background: rgba(95,185,138,0.083);
-      border-color: rgba(95,185,138,0.33);
-      box-shadow:
-        0 0 0 1px rgba(95,185,138,0.165),
-        0 8px 32px rgba(95,185,138,0.138),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-      transform: translateY(-1px);
-    }
 
     /* ══════════════════════════════════════
        HERO / LANDING
@@ -1456,6 +1447,270 @@
     /* ── SELECCION DE TEXTO ── */
     ::selection { background: rgba(95,185,138,0.26); color: var(--texto); }
 
+    /* ══════════════════════════════════════
+       REFINAMIENTO FINAL — NutriFit Pro
+    ══════════════════════════════════════ */
+    .btn-nav, .btn-start, .btn-siguiente, .btn-ayuda,
+    .btn-comprar, .btn-comida, .btn-volver-landing,
+    #btn-nutrifit, #chatbot-toggle, #chatbot-close {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #btn-nutrifit,
+    .btn-volver-landing {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent 58%),
+        linear-gradient(135deg, rgba(95,185,138,0.22), rgba(95,185,138,0.065));
+      color: var(--texto);
+      border-color: rgba(95,185,138,0.42);
+      box-shadow:
+        0 0 0 1px rgba(95,185,138,0.12),
+        0 14px 34px rgba(0,0,0,0.24),
+        0 0 28px rgba(95,185,138,0.11),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    #btn-nutrifit:hover,
+    .btn-volver-landing:hover {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.11), transparent 60%),
+        linear-gradient(135deg, rgba(95,185,138,0.29), rgba(95,185,138,0.095));
+      border-color: rgba(95,185,138,0.58);
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(95,185,138,0.2),
+        0 18px 44px rgba(0,0,0,0.28),
+        0 0 36px rgba(95,185,138,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+    #btn-nutrifit:active,
+    .btn-volver-landing:active,
+    #chatbot-toggle:active {
+      transform: translateY(0) scale(0.985);
+    }
+
+    #chatbot-toggle {
+      min-width: 158px;
+      height: 54px;
+      padding: 0 17px;
+      border-radius: 16px;
+      color: var(--texto);
+      text-transform: none;
+      box-shadow:
+        0 0 0 1px rgba(95,185,138,0.16),
+        0 15px 38px rgba(0,0,0,0.34),
+        0 0 28px rgba(95,185,138,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    #chatbot-toggle::after { border-radius: 20px; opacity: 0.68; }
+    .chatbot-toggle-icon {
+      color: var(--verde);
+      background: linear-gradient(135deg, rgba(95,185,138,0.2), rgba(95,185,138,0.07));
+      border: 1px solid rgba(95,185,138,0.16);
+    }
+
+    #btn-nutrifit:focus-visible,
+    .btn-volver-landing:focus-visible,
+    #chatbot-toggle:focus-visible,
+    .btn-comida:focus-visible,
+    .opcion:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(95,185,138,0.2), 0 16px 44px rgba(0,0,0,0.28);
+    }
+
+    .comida-card {
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(95,185,138,0.055), transparent 34%),
+        var(--fondo2);
+    }
+    .comida-img {
+      height: 230px;
+      border-radius: 26px 26px 0 0;
+      isolation: isolate;
+    }
+    .comida-img::after {
+      background:
+        linear-gradient(180deg, rgba(6,8,10,0.04) 0%, rgba(6,8,10,0.18) 46%, rgba(6,8,10,0.74) 100%);
+    }
+    .comida-badge {
+      top: 14px; left: 14px;
+      padding: 6px 12px;
+      font-size: 0.7rem;
+      color: #dff8e9;
+      background: rgba(8,13,11,0.64);
+      border-color: rgba(95,185,138,0.38);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+      text-shadow: 0 1px 12px rgba(95,185,138,0.22);
+    }
+    .btn-comida {
+      border-radius: 12px;
+      padding: 10px 17px;
+      background: rgba(95,185,138,0.1);
+      border-color: rgba(95,185,138,0.28);
+      color: #dff8e9;
+      font-weight: 850;
+    }
+    .btn-comida:hover {
+      background: rgba(95,185,138,0.17);
+      border-color: rgba(95,185,138,0.46);
+    }
+
+    .receta-box,
+    .curiosidad-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.038), rgba(255,255,255,0.014)),
+        rgba(255,255,255,0.018);
+      border-color: rgba(95,185,138,0.13);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.055), 0 16px 42px rgba(0,0,0,0.22);
+    }
+    .receta-box-title,
+    .curiosidad-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(95,185,138,0.075);
+      border: 1px solid rgba(95,185,138,0.14);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .receta-box:nth-child(1) .receta-box-title::before { content: '▣'; color: var(--verde); }
+    .receta-box:nth-child(2) .receta-box-title::before { content: '▶'; color: var(--azul); }
+    .curiosidad-label::before { content: '✦'; color: var(--amarillo); }
+    .curiosidad-card:nth-child(2) .curiosidad-label::before { content: '◆'; color: var(--verde); }
+
+    .boss-ticks {
+      gap: 8px;
+      padding: 0;
+      margin-top: 10px;
+    }
+    .boss-tick {
+      flex: 1;
+      text-align: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.032);
+      border: 1px solid rgba(255,255,255,0.075);
+      color: var(--texto3);
+      transition: all 0.34s var(--ease-premium);
+    }
+    .boss-tick.is-active {
+      color: var(--texto);
+      background: rgba(95,185,138,0.105);
+      border-color: rgba(95,185,138,0.28);
+      box-shadow: 0 0 18px rgba(95,185,138,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .pregunta-area,
+    .opciones-zona {
+      animation: quizSoftIn 0.58s var(--ease-premium) both;
+    }
+    .pregunta-area.is-changing,
+    .opciones-zona.is-changing {
+      animation: none;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .pregunta-txt {
+      text-wrap: balance;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,0.2));
+    }
+    .kw {
+      display: inline-block;
+      padding: 0 0.1em;
+      border-radius: 0.32em;
+      background: rgba(255,255,255,0.035);
+    }
+    .kw-agua { color: #84b9ff; background: rgba(111,151,201,0.12); }
+    .kw-verde { color: #7fd8a5; background: rgba(95,185,138,0.105); }
+    .kw-proteina { color: #e8c67f; background: rgba(214,184,119,0.12); }
+    .kw-azucar { color: #d99a7a; background: rgba(217,154,122,0.12); }
+    @keyframes quizSoftIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .diag-card {
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
+        radial-gradient(circle at 14% 0%, rgba(95,185,138,0.11), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.042), rgba(255,255,255,0.014)),
+        var(--fondo2);
+      background-size: 100% 6px, 6px 100%, auto, auto, auto;
+    }
+    .diag-pixel-art {
+      width: 72px;
+      display: grid;
+      grid-template-columns: repeat(6, 10px);
+      grid-auto-rows: 10px;
+      gap: 2px;
+      margin-bottom: 22px;
+      filter: drop-shadow(0 0 16px rgba(95,185,138,0.25));
+    }
+    .diag-pixel-art span {
+      border-radius: 2px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .diag-pixel-art .px-on { background: var(--verde); border-color: rgba(255,255,255,0.16); }
+    .diag-pixel-art .px-mid { background: var(--azul); border-color: rgba(255,255,255,0.14); }
+    .diag-pixel-art .px-gold { background: var(--amarillo); border-color: rgba(255,255,255,0.14); }
+    .diag-rasgo {
+      border-radius: 16px;
+      image-rendering: pixelated;
+    }
+
+    .nutrifit-aviso {
+      padding: 22px 6vw 34px;
+      text-align: center;
+      color: var(--texto3);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(95,185,138,0.025));
+    }
+
+    @media (max-width: 900px) {
+      .comida-img { height: 218px; }
+      .diag-pixel-art { margin-left: auto; margin-right: auto; }
+      .boss-ticks { gap: 6px; }
+      .boss-tick { font-size: 0.62rem; padding: 7px 6px; }
+    }
+    @media (max-width: 600px) {
+      #btn-nutrifit {
+        left: 14px;
+        top: 14px;
+        border-radius: 14px;
+      }
+      #chatbot-toggle {
+        min-width: 142px;
+        height: 50px;
+        padding: 0 13px;
+        gap: 8px;
+        font-size: 0.82rem;
+      }
+      .chatbot-toggle-icon { width: 26px; height: 26px; }
+      .comida-card { border-radius: 24px; }
+      .comida-img { border-radius: 22px 22px 0 0; }
+      .comida-meta { gap: 12px; }
+      .btn-comida { padding: 10px 14px; }
+      .receta-box, .curiosidad-card { border-radius: 18px; }
+      .pregunta-area { padding-top: 16px; }
+      .pregunta-txt { max-width: 340px; line-height: 1.3; }
+      .opcion { border-radius: 17px; }
+      .nutrifit-aviso { padding-bottom: 88px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1616,7 +1871,7 @@
       <div class="comida-body">
         <div class="comida-nombre">Ensalada energética</div>
         <div class="comida-desc">Lechuga romana, tomate cherry, aceitunas, cebolla morada y queso laminado con aliño de limón y aceite de oliva.</div>
-        <div class="comida-meta"><div class="comida-kcal"><strong>280</strong> kcal</div><button class="btn-comida" data-plato="ensalada">Ver Receta</button></div>
+        <div class="comida-meta"><div class="comida-kcal"><strong>280</strong> kcal</div><button class="btn-comida" data-plato="ensalada">Pedir</button></div>
       </div>
     </div>
     <div class="comida-card" data-plato="bowl">
@@ -1628,7 +1883,7 @@
       <div class="comida-body">
         <div class="comida-nombre">Bowl de proteínas</div>
         <div class="comida-desc">Quinoa cocida, pollo a la plancha, palta, pepino, tomate, zanahoria y hojas verdes en un bowl completo.</div>
-        <div class="comida-meta"><div class="comida-kcal"><strong>520</strong> kcal</div><button class="btn-comida" data-plato="bowl">Ver Receta</button></div>
+        <div class="comida-meta"><div class="comida-kcal"><strong>520</strong> kcal</div><button class="btn-comida" data-plato="bowl">Pedir</button></div>
       </div>
     </div>
     <div class="comida-card" data-plato="desayuno">
@@ -1640,7 +1895,7 @@
       <div class="comida-body">
         <div class="comida-nombre">Desayuno completo</div>
         <div class="comida-desc">Huevos revueltos suaves, tostada integral con palta y fruta fresca para empezar con energía estable.</div>
-        <div class="comida-meta"><div class="comida-kcal"><strong>410</strong> kcal</div><button class="btn-comida" data-plato="desayuno">Ver Receta</button></div>
+        <div class="comida-meta"><div class="comida-kcal"><strong>410</strong> kcal</div><button class="btn-comida" data-plato="desayuno">Pedir</button></div>
       </div>
     </div>
     <div class="comida-card" data-plato="snack">
@@ -1652,7 +1907,7 @@
       <div class="comida-body">
         <div class="comida-nombre">Snack saludable</div>
         <div class="comida-desc">Yogur natural con granola, arándanos, frambuesas, nueces y un toque de miel para media mañana.</div>
-        <div class="comida-meta"><div class="comida-kcal"><strong>190</strong> kcal</div><button class="btn-comida" data-plato="snack">Ver Receta</button></div>
+        <div class="comida-meta"><div class="comida-kcal"><strong>190</strong> kcal</div><button class="btn-comida" data-plato="snack">Pedir</button></div>
       </div>
     </div>
   </div>
@@ -1718,9 +1973,9 @@
       </div>
       <div class="boss-track"><div class="boss-fill" id="boss-fill"></div></div>
       <div class="boss-ticks">
-        <span class="boss-tick">Inicio</span>
-        <span class="boss-tick">50%</span>
-        <span class="boss-tick">Meta</span>
+        <span class="boss-tick is-active">Bloque 1</span>
+        <span class="boss-tick">Bloque 2</span>
+        <span class="boss-tick">Bloque 3</span>
       </div>
     </div>
     <div class="pregunta-area">
@@ -1748,6 +2003,12 @@
     </div>
     <div class="diag-inner">
       <div class="diag-card">
+        <div class="diag-pixel-art" aria-hidden="true">
+          <span></span><span class="px-on"></span><span class="px-on"></span><span></span><span class="px-mid"></span><span></span>
+          <span class="px-on"></span><span class="px-on"></span><span class="px-gold"></span><span class="px-mid"></span><span class="px-mid"></span><span></span>
+          <span></span><span class="px-on"></span><span class="px-gold"></span><span class="px-gold"></span><span class="px-mid"></span><span></span>
+          <span></span><span></span><span class="px-gold"></span><span class="px-gold"></span><span></span><span></span>
+        </div>
         <div class="diag-etiqueta">✦ Análisis completado</div>
         <h2 class="diag-titulo">Resultados adaptados<br>a tu situación</h2>
         <div class="diag-nivel" id="diag-nivel-badge"></div>
@@ -1780,6 +2041,8 @@
   </div>
 
 </div><!-- /seccion-cuestionario -->
+
+<div class="nutrifit-aviso">Aviso: NutriFit es un proyecto educativo.</div>
 
 <!-- ═══ CHATBOT IA FLOTANTE ═══ -->
 <div id="chatbot-container">
@@ -2111,13 +2374,40 @@
   }
 
   /* ── QUIZ ── */
+  function resaltarPregunta(texto) {
+    return texto
+      .replace(/agua/gi, '<span class="kw kw-agua">$&</span>')
+      .replace(/verduras/gi, '<span class="kw kw-verde">$&</span>')
+      .replace(/proteína/gi, '<span class="kw kw-proteina">$&</span>')
+      .replace(/azúcar/gi, '<span class="kw kw-azucar">$&</span>')
+      .replace(/grasas/gi, '<span class="kw kw-proteina">$&</span>')
+      .replace(/desayunas|desayuno/gi, '<span class="kw kw-verde">$&</span>');
+  }
+
+  function actualizarBloquesProgreso(i) {
+    var bloque = i < 3 ? 0 : (i < 6 ? 1 : 2);
+    document.querySelectorAll('.boss-tick').forEach(function(tick, idx) {
+      tick.classList.toggle('is-active', idx <= bloque);
+    });
+  }
+
+  function animarEntradaPregunta() {
+    [document.querySelector('.pregunta-area'), document.querySelector('.opciones-zona')].forEach(function(el) {
+      if (!el) return;
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = 'quizSoftIn 0.58s var(--ease-premium) both';
+    });
+  }
+
   function mostrarPregunta(i) {
     var p = preguntas[i];
     document.getElementById('geo-emoji').textContent = p.emoji;
     document.getElementById('pnum').textContent = 'Pregunta ' + (i+1) + ' de ' + preguntas.length;
-    document.getElementById('ptxt').textContent = p.texto;
+    document.getElementById('ptxt').innerHTML = resaltarPregunta(p.texto);
     document.getElementById('boss-fill').style.width = (((i+1) / preguntas.length) * 100) + '%';
     document.getElementById('boss-contador').textContent = (i+1) + ' / ' + preguntas.length;
+    actualizarBloquesProgreso(i);
 
     var clases = ['op-a','op-b','op-c','op-d'];
     opContainer.innerHTML = '';
@@ -2140,6 +2430,7 @@
 
     btnSig.textContent = (i === preguntas.length - 1) ? '📊 Ver mi resultado' : 'Siguiente →';
     btnSig.disabled = (respuestas[i] === undefined);
+    animarEntradaPregunta();
   }
 
   function calcularSuma() {
